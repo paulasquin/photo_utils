@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  photos_utils:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      .env
+    volumes:
+      - /Volumes/Seagate/Photos:/host/photos_input:ro
+      - /Volumes/Seagate/Photos_export:/host/photos_output
+      - ${WORKDIR_PHOTOS}:/host/workdir/photos_size:ro
+      - ${WORKDIR_PHOTOS}/bordure:/host/workdir/bordure
+      - ./:/app
+      - ${HOME}/.jupyter/jupyter_notebook_config.json:/root/.jupyter/jupyter_notebook_config.json
+    ports:
+      - 8899:8899
+    command: bash -c "jupyter notebook --port=8899 --no-browser --ip=0.0.0.0 --allow-root"
+    stdin_open: true
+    tty: true
