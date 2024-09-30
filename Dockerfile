@@ -1,5 +1,8 @@
-FROM python:3.8
+FROM python:3.10
 
+RUN apt-get update && \
+    apt-get install -y ffmpeg
+    
 # Upgrade pip
 RUN pip install --upgrade pip
 

@@ -1,3 +1,5 @@
 jupyter
 Pillow
 tqdm
+ffmpeg-python
+pyexiftool

@@ -9,9 +9,11 @@ services:
       .env
     volumes:
       - /Volumes/Seagate/Photos:/host/photos_input:ro
+      - /Volumes/Seagate/Pictures/Camera:/host/camera_input:ro
+      - /Volumes/Seagate/Pictures/CameraVideoCompress:/host/camera_video_compress
       - /Volumes/Seagate/Photos_export:/host/photos_output
-      - ${WORKDIR_PHOTOS}:/host/workdir/photos_size:ro
-      - ${WORKDIR_PHOTOS}/bordure:/host/workdir/bordure
+      # - ${WORKDIR_PHOTOS}:/host/workdir/photos_size:ro
+      # - ${WORKDIR_PHOTOS}/bordure:/host/workdir/bordure
       - ./:/app
       - ${HOME}/.jupyter/jupyter_notebook_config.json:/root/.jupyter/jupyter_notebook_config.json
     ports:
